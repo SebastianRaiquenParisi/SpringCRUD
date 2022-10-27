@@ -1,10 +1,10 @@
-package com.example.crudSpring;
+package com.example.byma;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CrudSpringApplicationTests {
+class BymaSpringCrudApplicationTests {
 
 	@Test
 	void contextLoads() {

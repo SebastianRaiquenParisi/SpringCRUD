@@ -1,13 +1,13 @@
-package com.example.crudSpring;
+package com.example.byma;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CrudSpringApplication {
+public class BymaSpringCrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrudSpringApplication.class, args);
+		SpringApplication.run(BymaSpringCrudApplication.class, args);
 	}
 
 }
