@@ -1,13 +1,11 @@
-package controllers;
+package com.example.byma.controllers;
 
-import models.Usuario;
+import com.example.byma.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import services.IUsuarioService;
-
-import java.util.List;
+import com.example.byma.services.IUsuarioService;
 
 @RequestMapping("/usuarios/api")
 @RestController
@@ -17,12 +15,12 @@ public class UsuariosController {
     IUsuarioService userService;
 
 
-    @RequestMapping(value = "", method=RequestMethod.GET)
+    @GetMapping
     public ResponseEntity<Usuario> listarUsuarios(){
         return new ResponseEntity(userService.findAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method=RequestMethod.GET)
+    @GetMapping({"/{id}"})
     public ResponseEntity<Usuario> obtenerUsuario(@PathVariable("id") Long id){
         try {
             return new ResponseEntity(userService.getUserById(id), HttpStatus.OK);
@@ -31,16 +29,16 @@ public class UsuariosController {
         }
     }
 
-    @RequestMapping(value="", method = RequestMethod.POST)
+    @PostMapping
     public ResponseEntity crearUsuario(@RequestBody Usuario usuario){
         return new ResponseEntity(userService.save(usuario), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/{id}", method = RequestMethod.PUT)
+    @PutMapping({"/{id}"})
     public ResponseEntity modificarUsuario(@PathVariable("id") Long id, @RequestBody Usuario usuarioModificado){
         return new ResponseEntity(userService.updateUser(id, usuarioModificado), HttpStatus.OK);
     }
-    @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping({"/{id}"})
     public ResponseEntity eliminarUsuario(@PathVariable("id") Long id){
         boolean deleted = userService.deleteUserById(id);
         if(deleted){

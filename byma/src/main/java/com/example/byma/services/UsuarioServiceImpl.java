@@ -1,11 +1,12 @@
-package services;
+package com.example.byma.services;
 
 import lombok.AllArgsConstructor;
-import models.Usuario;
+import com.example.byma.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.UsuarioRepository;
+import com.example.byma.repositories.UsuarioRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,9 @@ public class UsuarioServiceImpl implements IUsuarioService{
 
     @Override
     public List<Usuario> findAll() {
-        return (List<Usuario>) userDao.findAll();
+        List<Usuario> usuarios = new ArrayList<>();
+        userDao.findAll().forEach(usuarios::add);
+        return usuarios;
     }
 
     @Override

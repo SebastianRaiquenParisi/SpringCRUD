@@ -1,6 +1,6 @@
-package services;
+package com.example.byma.services;
 
-import models.Usuario;
+import com.example.byma.models.Usuario;
 
 import java.util.List;
 import java.util.Optional;

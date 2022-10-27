@@ -1,4 +1,4 @@
-package models;
+package com.example.byma.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "Usuarios")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,7 +25,6 @@ public class Usuario{
     @Column(nullable = false)
     public String localidad;
 
-// INSERT INTO Usuarios (name, last_name,dni,localidad) VALUES ("Jorge","Perez","23647865","lugano")
 
     public String getName() {
         return name;
