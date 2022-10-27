@@ -27,7 +27,7 @@ public class UsuariosController {
         try {
             return new ResponseEntity(userService.getUserById(id), HttpStatus.OK);
         }catch(Exception e){
-            return new ResponseEntity(null, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -42,7 +42,12 @@ public class UsuariosController {
     }
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
     public ResponseEntity eliminarUsuario(@PathVariable("id") Long id){
-        return new ResponseEntity(userService.deleteUserById(id), HttpStatus.OK);
+        boolean deleted = userService.deleteUserById(id);
+        if(deleted){
+            return new ResponseEntity(HttpStatus.OK);
+        }else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 
 
