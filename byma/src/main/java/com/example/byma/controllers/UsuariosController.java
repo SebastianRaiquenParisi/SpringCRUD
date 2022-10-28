@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.byma.services.IUsuarioService;
 
-@RequestMapping("/usuarios/api")
+@RequestMapping("/api/usuarios")
 @RestController
 public class UsuariosController {
 
